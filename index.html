@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="core-5.1.7/index.css">
+  <link rel="stylesheet" href="gallery-plugin/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+  <script src="core-5.1.7/index.js"></script>
+  <script src="gallery-plugin/index.js"></script>
+</head>
+<body>
+  <div id="viewer" style="width: 600px; height: 400px;"></div>
+
+  <script>
+      const viewer = new PhotoSphereViewer.Viewer({
+          container: document.querySelector('#viewer'),
+          panorama: 'image/photo-ac_24181716_m.jpg',
+          navbar: [
+              'zoom',
+              'move',
+              'fullscreen',
+              'gallery',
+          ],
+          plugins: [
+              [PhotoSphereViewer.GalleryPlugin, {
+                visibleOnLoad: true,
+                thumbnailSize: {
+                  width: 100,
+                  height: 50
+                }
+              }],
+          ],
+      });
+      const gallery = viewer.getPlugin(PhotoSphereViewer.GalleryPlugin);
+
+      gallery.setItems([
+          {
+              id: 'pano-1',
+              name: 'パノラマ 1',
+              panorama: 'image/photo-ac_24181716_m.jpg',
+              thumbnail: 'image/photo-ac_24181716_m.jpg',
+          },
+          {
+              id: 'pano-2',
+              name: 'パノラマ 2',
+              panorama: 'image/forest-3147_1280.jpg',
+              thumbnail: 'image/forest-3147_1280.jpg',
+          },
+          {
+              id: 'pano-3',
+              name: 'パノラマ 3',
+              panorama: 'image/photo-ac_24181716_m.jpg',
+              thumbnail: 'image/photo-ac_24181716_m.jpg',
+          },
+          {
+              id: 'pano-4',
+              name: 'パノラマ 4',
+              panorama: 'image/forest-3147_1280.jpg',
+              thumbnail: 'image/forest-3147_1280.jpg',
+          },
+          {
+              id: 'pano-5',
+              name: 'パノラマ 5',
+              panorama: 'image/photo-ac_24181716_m.jpg',
+              thumbnail: 'image/photo-ac_24181716_m.jpg',
+          },
+      ]);
+  </script>
+</body>
+</html>
